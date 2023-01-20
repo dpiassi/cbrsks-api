@@ -6,7 +6,7 @@ const {
   DISCORD_SECRETY_ID,
   DISCORD_REDIRECT_URI,
   DISCORD_SCOPE,
-  API_URL
+  APP_URL
 } = process.env
 
 module.exports = async (context, req) => {
@@ -32,34 +32,10 @@ module.exports = async (context, req) => {
       const tokenResponseData = await request(`${DISCORD_API_URL}/oauth2/token`, config)
       const authData = await tokenResponseData.body.json()
 
+      console.log('authData', authData)
+
       if (authData.error) throw authData
 
-    //   const userResponse = await request(`${DISCORD_API_URL}/users/@me`, {
-    //     headers: {
-    //       Authorization: `${authData.token_type} ${authData.access_token}`
-    //     }
-    //   })
-    //   const user = await userResponse.body.json()
-    //   const userDBResponse = await request(`${API_URL}/users/discord/${user.id}`)
-    //   const userDB = await userDBResponse.body.json()
-
-    //   context.bindings.outputUsers = {
-    //     id: userDB.user?.id,
-    //     discord: {
-    //       id: user.id,
-    //       username: user.username,
-    //       discriminator: user.discriminator,
-    //       avatar: user.avatar,
-    //       banner: user.banner,
-    //       bannerColor: user.banner_color,
-    //       accentColor: user.accent_color,
-    //       token: authData.access_token,
-    //       refreshToken: authData.refresh_token,
-    //       scope: authData.scope
-    //     }
-    //   }
-
-    //   context.log('SUCCESS - AuthDiscord', user)
       return {
         status: 302,
         headers: {
@@ -98,7 +74,7 @@ module.exports = async (context, req) => {
   return {
     status: 302,
     headers: {
-      location: '/login'
+      location: '/'
     }
   }
 }
