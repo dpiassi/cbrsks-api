@@ -1,12 +1,12 @@
 const { request } = require('undici')
+const api = require('../utils/api.js')
 
 const {
   DISCORD_API_URL,
   DISCORD_CLIENT_ID,
   DISCORD_SECRETY_ID,
   DISCORD_REDIRECT_URI,
-  DISCORD_SCOPE,
-  APP_URL
+  DISCORD_SCOPE
 } = process.env
 
 module.exports = async (context, req) => {
@@ -32,9 +32,32 @@ module.exports = async (context, req) => {
       const tokenResponseData = await request(`${DISCORD_API_URL}/oauth2/token`, config)
       const authData = await tokenResponseData.body.json()
 
-      console.log('authData', authData)
+      if (authData.error) throw new Error('Error with Discord redirec')
 
-      if (authData.error) throw authData
+      const userResponse = await request(`${DISCORD_API_URL}/users/@me`, {
+        headers: {
+          Authorization: `${authData.token_type} ${authData.access_token}`
+        }
+      })
+      const user = await userResponse.body.json()
+      const userDB = await api.getUserByDiscordId(user.id)
+
+      context.bindings.outputUsers = {
+        id: userDB.user?.id,
+        discord: {
+          id: user.id,
+          username: user.username,
+          discriminator: user.discriminator,
+          avatar: user.avatar,
+          banner: user.banner,
+          bannerColor: user.banner_color,
+          accentColor: user.accent_color,
+          token: authData.access_token,
+          refreshToken: authData.refresh_token,
+          scope: authData.scope
+        }
+      }
+      context.log('SUCCESS - AuthDiscord', user)
 
       return {
         status: 302,

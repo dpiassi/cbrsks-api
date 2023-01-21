@@ -1,6 +1,6 @@
 const {DISCORD_API_URL} = process.env
 
-module.exports = async function (context, req) {
+module.exports = async (context, req) => {
   return {
     status: 200,
     body: [{
