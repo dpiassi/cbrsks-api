@@ -9,6 +9,32 @@ const {
   DISCORD_SCOPE
 } = process.env
 
+const saveUserInDB = async (user) => {
+  try {
+    const userDB = await api.getUserByDiscordId(user.id)
+
+    context.bindings.outputUsers = {
+      id: userDB.user?.id,
+      discord: {
+        id: user.id,
+        username: user.username,
+        discriminator: user.discriminator,
+        avatar: user.avatar,
+        banner: user.banner,
+        bannerColor: user.banner_color,
+        accentColor: user.accent_color,
+        token: authData.access_token,
+        refreshToken: authData.refresh_token,
+        scope: authData.scope
+      }
+    }
+  } catch(error) {
+    context.log('AuthDiscord', 'ERROR', 'Unable to sava to database')
+    throw new Error('Error with Discord redirec')
+  }
+  
+}
+
 module.exports = async (context, req) => {
   const { code } = req.query
 
@@ -40,23 +66,9 @@ module.exports = async (context, req) => {
         }
       })
       const user = await userResponse.body.json()
-      const userDB = await api.getUserByDiscordId(user.id)
+      
+      await saveUserInDB(user)
 
-      context.bindings.outputUsers = {
-        id: userDB.user?.id,
-        discord: {
-          id: user.id,
-          username: user.username,
-          discriminator: user.discriminator,
-          avatar: user.avatar,
-          banner: user.banner,
-          bannerColor: user.banner_color,
-          accentColor: user.accent_color,
-          token: authData.access_token,
-          refreshToken: authData.refresh_token,
-          scope: authData.scope
-        }
-      }
       context.log('SUCCESS - AuthDiscord', user)
 
       return {
