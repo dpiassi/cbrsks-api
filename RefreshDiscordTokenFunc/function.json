@@ -8,7 +8,7 @@
       "methods": [
         "get"
       ],
-      "route": "users/discord/{id}"
+      "route": "auth/discord/refresh/{token}"
     },
     {
       "type": "http",
@@ -22,7 +22,16 @@
       "databaseName": "cyberskies",
       "collectionName": "users",
       "connectionStringSetting": "AzureWebJobsStorage",
-      "sqlQuery": "SELECT c.id, c.discord FROM c WHERE c.discord.id={id}"
+      "sqlQuery": "SELECT c.id, c.discord FROM c WHERE c.discord.token={token}"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "out",
+      "name": "outputUsers",
+      "databaseName": "cyberskies",
+      "collectionName": "users",
+      "createIfNotExists": true,
+      "connectionStringSetting": "AzureWebJobsStorage"
     }
   ]
 }

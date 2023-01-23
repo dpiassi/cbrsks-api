@@ -1,45 +1,17 @@
-const { request } = require('undici')
-const api = require('../utils/api.js')
+const dayjs = require('dayjs')
+const utc = require('dayjs/plugin/utc')
+const api = require('../utils/api')
+const discordApi = require('../utils/discordApi')
 
-const {
-  DISCORD_API_URL,
-  DISCORD_CLIENT_ID,
-  DISCORD_SECRETY_ID,
-  DISCORD_REDIRECT_URI,
-  DISCORD_SCOPE
-} = process.env
+dayjs.extend(utc)
 
 module.exports = async (context, req) => {
   const { code } = req.query
 
   if (code) {
-    const config = {
-      method: 'POST',
-      body: new URLSearchParams({
-        client_id: DISCORD_CLIENT_ID,
-        client_secret: DISCORD_SECRETY_ID,
-        code,
-        grant_type: 'authorization_code',
-        redirect_uri: DISCORD_REDIRECT_URI,
-        scope: DISCORD_SCOPE
-      }).toString(),
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    }
-
     try {
-      const tokenResponseData = await request(`${DISCORD_API_URL}/oauth2/token`, config)
-      const authData = await tokenResponseData.body.json()
-
-      if (authData.error) throw new Error('Error with Discord redirec')
-
-      const userResponse = await request(`${DISCORD_API_URL}/users/@me`, {
-        headers: {
-          Authorization: `${authData.token_type} ${authData.access_token}`
-        }
-      })
-      const user = await userResponse.body.json()
+      const authData = await discordApi.getToken(code)
+      const user = await discordApi.getCurrentUser(authData)
       const userDB = await api.getUserByDiscordId(user.id)
   
       context.bindings.outputUsers = {
@@ -54,8 +26,12 @@ module.exports = async (context, req) => {
           accentColor: user.accent_color,
           token: authData.access_token,
           refreshToken: authData.refresh_token,
-          scope: authData.scope
-        }
+          scope: authData.scope,
+          userCreate: userDB.user?.discord?.userCreate || dayjs().utc().format(),
+          lastLogin: dayjs().utc().format(),
+          lastInteraction: dayjs().utc().format()
+        },
+        userCreate: userDB.user?.userCreate || dayjs().utc().format()
       }
 
       context.log('SUCCESS - AuthDiscord', user)

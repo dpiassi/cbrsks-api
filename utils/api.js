@@ -12,6 +12,16 @@ const api = {
     } catch(error) {
       return false
     }
+  },
+  refreshDiscordToken: async (token) => {
+    try {
+      const reponse = await request(`${API_URL}/auth/discord/refresh/${token}`)
+      const newToken = await reponse.body.json()
+
+      return newToken
+    } catch(error) {
+      return false
+    }
   }
 }
 

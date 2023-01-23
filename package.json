@@ -7,6 +7,8 @@
     "test": "echo \"No tests yet...\""
   },
   "dependencies": {
+    "dayjs": "^1.11.7",
+    "discord.js": "^14.7.1",
     "undici": "^5.15.1"
   },
   "devDependencies": {}
