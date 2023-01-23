@@ -21,7 +21,7 @@
       "name": "inputUsers",
       "databaseName": "cyberskies",
       "collectionName": "users",
-      "connectionStringSetting": "AzureWebJobsStorage",
+      "connectionStringSetting": "CosmoDB",
       "sqlQuery": "SELECT c.id, c.discord FROM c WHERE c.discord.id={id}"
     }
   ]

@@ -22,7 +22,7 @@
       "databaseName": "cyberskies",
       "collectionName": "users",
       "createIfNotExists": true,
-      "connectionStringSetting": "AzureWebJobsStorage"
+      "connectionStringSetting": "CosmoDB"
     }
   ]
 }
