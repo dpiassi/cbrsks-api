@@ -16,9 +16,19 @@ const api = {
   refreshDiscordToken: async (token) => {
     try {
       const reponse = await request(`${API_URL}/auth/discord/refresh/${token}`)
-      const newToken = await reponse.body.json()
+      const authData = await reponse.body.json()
 
-      return newToken
+      return authData
+    } catch(error) {
+      return false
+    }
+  },
+  getUserByDiscordToken: async (token) => {
+    try {
+      const reponse = await request(`${API_URL}/user/discord/${token}`)
+      const user = await reponse.body.json()
+
+      return user
     } catch(error) {
       return false
     }

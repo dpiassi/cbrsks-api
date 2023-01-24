@@ -8,7 +8,7 @@
       "methods": [
         "get"
       ],
-      "route": "auth/discord/refresh/{token}"
+      "route": "user/discord/{token}"
     },
     {
       "type": "http",
@@ -23,15 +23,6 @@
       "collectionName": "users",
       "connectionStringSetting": "CosmoDB",
       "sqlQuery": "SELECT c.id, c.discord FROM c WHERE c.discord.token={token}"
-    },
-    {
-      "type": "cosmosDB",
-      "direction": "out",
-      "name": "outputUsers",
-      "databaseName": "cyberskies",
-      "collectionName": "users",
-      "createIfNotExists": true,
-      "connectionStringSetting": "CosmoDB"
     }
   ]
 }
