@@ -9,7 +9,7 @@ module.exports = async (context, req) => {
 
   const { authData } = await api.refreshDiscordToken(token)
   const {user: {discord: {id, avatar, username, discriminator}}} = await api.getUserByDiscordToken(authData.access_token)
-  const urlAvatar = `${URL_BASE_DISCORD_AVATAR}/${id}/${avatar}}`
+  const urlAvatar = `${URL_BASE_DISCORD_AVATAR}/${id}/${avatar}`
 
   return {
       status: 200,
