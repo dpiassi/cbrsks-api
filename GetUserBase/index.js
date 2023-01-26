@@ -10,6 +10,7 @@ module.exports = async (context, req) => {
   const { authData } = await api.refreshDiscordToken(token)
   const {user: {discord: {id, avatar, username, discriminator}}} = await api.getUserByDiscordToken(authData.access_token)
   const urlAvatar = `${URL_BASE_DISCORD_AVATAR}/${id}/${avatar}`
+  const {corporation} = await api.getCorporationCurrentUser(authData.token_type, authData.access_token)
 
   return {
       status: 200,
@@ -18,6 +19,7 @@ module.exports = async (context, req) => {
         username,
         discriminator,
         avatar: urlAvatar,
+        corporation: corporation.name
       },
       cookies: [{
         name: 'discordTokenType',
