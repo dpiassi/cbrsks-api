@@ -7,8 +7,6 @@ dayjs.extend(utc)
 module.exports = async (context, req) => {
   try {
     const user = context.bindings.inputUsers[0]
-
-    console.log('RefreshDiscordTokenFunc')
     
     if (!user) throw new Error('Not found user')
   

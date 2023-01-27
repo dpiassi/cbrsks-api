@@ -32,6 +32,7 @@ const getToken = async (code) => {
 
     return authData
   } catch(error) {
+    context.log('getToken', 'ERROR', error)
     return false
   }
 }
