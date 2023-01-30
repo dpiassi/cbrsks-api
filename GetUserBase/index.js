@@ -6,6 +6,9 @@ const {URL_BASE_DISCORD_AVATAR} = process.env
 module.exports = async (context, req) => {
   try {
     const cookies = req.headers.cookie || false
+
+    if (!cookies) throw new Error('Invalid token')
+
     const token = cookies && getCookie(cookies, 'discordToken')
   
     const { authData } = await api.refreshDiscordToken(token)
