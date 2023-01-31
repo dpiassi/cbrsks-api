@@ -1,0 +1,27 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get"
+      ],
+      "route": "rank/user"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "in",
+      "name": "inputSoloMatchesRanking",
+      "databaseName": "cyberskies",
+      "collectionName": "soloMatchesRanking",
+      "connectionStringSetting": "CosmoDB"
+    }
+  ]
+}

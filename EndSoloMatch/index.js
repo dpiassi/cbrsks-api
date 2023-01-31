@@ -46,6 +46,7 @@ module.exports = async function (context, req) {
 		const timeMs = end.valueOf() - start.valueOf()
 		const timeFormat = timeToFormat(timeMs)
 		const dataRanking = {
+			userId: user.id,
 			timeMs,
 			time: timeFormat,
 			username: user.discord.username,
