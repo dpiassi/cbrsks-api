@@ -8,7 +8,7 @@
       "methods": [
         "get"
       ],
-      "route": "rank/100"
+      "route": "rank/3"
     },
     {
       "type": "http",
@@ -22,7 +22,7 @@
       "databaseName": "cyberskies",
       "collectionName": "soloMatchesRanking",
       "connectionStringSetting": "CosmoDB",
-      "sqlQuery": "SELECT c.time, c.username, c.discriminator, c.corporation, c.avatar FROM c ORDER BY c.timeMs ASC OFFSET 0 LIMIT 100"
+      "sqlQuery": "SELECT c.time, c.username, c.discriminator, c.corporation, c.avatar FROM c ORDER BY c.timeMs ASC OFFSET 0 LIMIT 3"
     }
   ]
 }

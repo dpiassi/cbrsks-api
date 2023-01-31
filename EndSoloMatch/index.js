@@ -26,7 +26,8 @@ module.exports = async function (context, req) {
 		const tokenType = cookies && getCookie(cookies, 'discordTokenType')
 		const {user} = await api.getUserByDiscordToken(token)
 		const {corporation} = await api.getCorporationCurrentUser(tokenType, token)
-		const avatar = `${URL_BASE_DISCORD_AVATAR}/${user.discord.id}/${user.discord.avatar}`
+		const avatarPlaceholder = 'https://cbrsks-unity.s3.amazonaws.com/images/avatars/placeholder.png'
+		const avatar = user.discord.avatar ? `${URL_BASE_DISCORD_AVATAR}/${user.discord.id}/${user.discord.avatar}` : avatarPlaceholder
 		const {soloMatch} = await api.getUserSoloMatchCurrent(user.id)
 
 		if (!soloMatch) throw new Error ('No matches')
