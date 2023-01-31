@@ -26,7 +26,23 @@ module.exports = async (context, req) => {
   
     return {
       status: 200,
-      data
+      data,
+      cookies: [{
+        name: 'discordTokenType',
+        value: `${authData.token_type}`,
+        path: '/',
+        sameSite: 'Strict',
+        secure: true,
+        httpOnly: true
+      },
+      {
+        name: 'discordToken',
+        value: `${authData.access_token}`,
+        path: '/',
+        sameSite: 'Strict',
+        secure: true,
+        httpOnly: true
+      }]
     }
   } catch(error) {
     context.log('StartSoloMatch', 'ERROR', error)
