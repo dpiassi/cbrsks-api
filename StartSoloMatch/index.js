@@ -1,9 +1,6 @@
 const dayjs = require('dayjs')
-const utc = require('dayjs/plugin/utc')
 const api = require("../utils/api")
 const getCookie = require("../utils/getCookie")
-
-dayjs.extend(utc)
 
 module.exports = async (context, req) => {
   try {
@@ -16,16 +13,20 @@ module.exports = async (context, req) => {
     const { authData } = await api.refreshDiscordToken(token)
     const {user: userDB} = await api.getUserByDiscordToken(authData.access_token)
     
+    const date = dayjs().utc()
+
     const data = {
       userId: userDB.id,
-      start: dayjs().utc().format(),
+      start: date.unix(),
+      startFormat: date.format(),
       finished: false
     }
 
     context.bindings.outpuSoloMatchs = data
   
     return {
-      status: 200
+      status: 200,
+      data
     }
   } catch(error) {
     context.log('StartSoloMatch', 'ERROR', error)

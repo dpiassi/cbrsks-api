@@ -1,0 +1,28 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get"
+      ],
+      "route": "match/solo/current/user/{id}"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "in",
+      "name": "inputSoloMatchs",
+      "databaseName": "cyberskies",
+      "collectionName": "soloMatchs",
+      "connectionStringSetting": "CosmoDB",
+      "sqlQuery": "SELECT * FROM c WHERE c.userId={id} ORDER BY c.start DESC OFFSET 0 LIMIT 1"
+    }
+  ]
+}

@@ -3,6 +3,16 @@ const { request } = require('undici')
 const {API_URL, KEY_GET_USER_BY_DISCORD_ID} = process.env
 
 const api = {
+  getUserSoloMatchCurrent: async (id) => {
+    try {
+      const soloMatchResponse = await request(`${API_URL}/match/solo/current/user/${id}`)
+      const soloMatchs = await soloMatchResponse.body.json()
+
+      return soloMatchs
+    } catch(error) {
+      return false
+    }
+  },
   getUserByDiscordId: async (id =  false) => {
     try {
       const userDBResponse = await request(`${API_URL}/users/discord/${id}?code=${KEY_GET_USER_BY_DISCORD_ID}`)
