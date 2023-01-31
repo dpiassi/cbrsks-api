@@ -50,7 +50,10 @@ module.exports = async function (context, req) {
 			time: timeFormat,
 			username: user.discord.username,
 			discriminator: user.discord.discriminator,
-			corporation: corporation?.logo || '',
+			corporation: {
+				name: corporation?.name || '',
+				logo: corporation?.logo || ''
+			},
 			avatar
 		}
 
