@@ -62,7 +62,10 @@ module.exports = async function (context, req) {
 		context.bindings.outputSoloMatchRanking = dataRanking
 
 		return {
-			status: 200
+			status: 200,
+			body: {
+				time: timeFormat
+			}
 		}
 	} catch(error) {
 		context.log('EndSoloMatch', 'ERROR', error)
