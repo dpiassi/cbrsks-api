@@ -1,13 +1,10 @@
 module.exports = async (context, req) => {
   try {
-    const ranking = context.bindings.inputSoloMatchesRanking.map((pos, index) => ({
-      ...pos,
-      rank: index + 1
-    }))
+    const rankingDB = context.bindings.inputSoloMatchesRanking
     const result = []
     const seen = new Set()
 
-    for (const item of ranking) {
+    for (const item of rankingDB) {
       const key = item.username + item.discriminator
 
       if (!seen.has(key)) {
@@ -15,12 +12,18 @@ module.exports = async (context, req) => {
         seen.add(key)
       }
     }
+
+    const ranking = result.map((pos, index) => ({
+      ...pos,
+      rank: index + 1
+    }))
+
   
     return {
       status: 200,
       body: {
         status: 200,
-        ranking: result.slice(0, 100)
+        ranking: ranking.slice(0, 100)
       }
     }
   } catch(error) {
