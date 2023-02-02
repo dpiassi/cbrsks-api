@@ -1,6 +1,6 @@
 const { request } = require('undici')
 
-const {API_URL, KEY_GET_USER_BY_DISCORD_ID} = process.env
+const {API_URL, KEY_GET_USER_BY_DISCORD_ID, KEY_ADD_ROLE} = process.env
 
 const api = {
   getUserSoloMatchCurrent: async (id) => {
@@ -54,6 +54,24 @@ const api = {
       return corporation
     } catch(error) {
       console.log('getCorporationCurrentUser', 'ERROR', error)
+      return false
+    }
+  },
+  addDiscordRole: async (token, roleId) => {
+    try {
+      const headers = { 'Cookie': `discordToken=${token}` }
+      const data = {
+        roleId
+      }
+      await request(`${API_URL}/discord/role?code=${KEY_ADD_ROLE}`, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify(data)
+      })
+
+      return true
+    } catch(error) {
+      console.log('getDiscordRole', 'ERROR', error)
       return false
     }
   }
