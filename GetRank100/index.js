@@ -7,7 +7,7 @@ module.exports = async (context, req) => {
     for (const item of rankingDB) {
       const key = item.username + item.discriminator
 
-      if (!seen.hass(key)) {
+      if (!seen.has(key)) {
         result.push(item)
         seen.add(key)
       }
