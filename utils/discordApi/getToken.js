@@ -5,10 +5,11 @@ const {
   DISCORD_CLIENT_ID,
   DISCORD_SECRETY_ID,
   DISCORD_REDIRECT_URI,
+  DISCORD_REDIRECT_URI_ADMIN,
   DISCORD_SCOPE
 } = process.env
 
-const getToken = async (code) => {
+const getToken = async (code, admin=false) => {
   const config = {
     method: 'POST',
     body: new URLSearchParams({
@@ -16,7 +17,7 @@ const getToken = async (code) => {
       client_secret: DISCORD_SECRETY_ID,
       code,
       grant_type: 'authorization_code',
-      redirect_uri: DISCORD_REDIRECT_URI,
+      redirect_uri: admin ? DISCORD_REDIRECT_URI_ADMIN : DISCORD_REDIRECT_URI,
       scope: DISCORD_SCOPE
     }).toString(),
     headers: {
@@ -28,11 +29,11 @@ const getToken = async (code) => {
     const tokenResponseData = await request(`${DISCORD_API_URL}/oauth2/token`, config)
     const authData = await tokenResponseData.body.json()
 
-    if (authData.error) throw new Error('Error with Discord redirec')
+    if (authData.error) throw new Error('getToken', 'ERROR', 'Error with Discord redirect')
 
     return authData
   } catch(error) {
-    context.log('getToken', 'ERROR', error)
+    console.log('getToken', 'ERROR', error)
     return false
   }
 }

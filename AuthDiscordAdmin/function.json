@@ -8,7 +8,7 @@
       "methods": [
         "get"
       ],
-      "route": "users/discord/{id}"
+      "route": "auth/discord/admin"
     },
     {
       "type": "http",
@@ -17,12 +17,12 @@
     },
     {
       "type": "cosmosDB",
-      "direction": "in",
-      "name": "inputUsers",
+      "direction": "out",
+      "name": "outputUsers",
       "databaseName": "cyberskies",
       "collectionName": "users",
-      "connectionStringSetting": "CosmoDB",
-      "sqlQuery": "SELECT c.id, c.discord, c.admin FROM c WHERE c.discord.id={id}"
+      "createIfNotExists": true,
+      "connectionStringSetting": "CosmoDB"
     }
   ]
 }

@@ -10,12 +10,17 @@ module.exports = async (context, req) => {
 
   if (code) {
     try {
-      const authData = await discordApi.getToken(code)
+      const authData = await discordApi.getToken(code, true)
       const user = await discordApi.getCurrentUser(authData)
       const userDB = await api.getUserByDiscordId(user.id)
+
+      console.log('userDB.user?.id', userDB.user?.id)
+      console.log('userDB.user?.admin', userDB.user?.admin)
+
+      if (!userDB.user?.id || !userDB.user?.admin) throw new Error('Not authorized')
   
       context.bindings.outputUsers = {
-        id: userDB.user?.id,
+        id: userDB.user.id,
         discord: {
           id: user.id,
           username: user.username,
@@ -29,18 +34,19 @@ module.exports = async (context, req) => {
           scope: authData.scope,
           userCreate: userDB.user?.discord?.userCreate || dayjs().utc().format(),
           lastLogin: dayjs().utc().format(),
-          lastInteraction: dayjs().utc().format()
+          lastInteraction: dayjs().utc().format(),
+          
         },
-        admin: userDB.user?.admin || false,
+        admin: userDB.user?.admin,
         userCreate: userDB.user?.userCreate || dayjs().utc().format()
       }
 
-      context.log('SUCCESS - AuthDiscord', user)
+      context.log('SUCCESS - AuthDiscordAdmin', user)
 
       return {
         status: 302,
         headers: {
-          location: '/game'
+          location: '/admin/dashboard'
         },
         cookies: [{
           name: 'discordTokenType',
@@ -60,22 +66,22 @@ module.exports = async (context, req) => {
         }]
       }
     } catch (error) {
-      context.log(`ERROR - AuthDiscord - ${error}`)
+      context.log('AuthDiscordAdmin', 'ERROR', error)
 
       return {
         status: 302,
         headers: {
-          location: '/'
+          location: '/admin'
         }
       }
     }
   }
 
-  context.log('ERROR - AuthDiscord - No code')
+  context.log('AuthDiscord ERROR No code')
   return {
     status: 302,
     headers: {
-      location: '/'
+      location: '/admin'
     }
   }
 }
