@@ -35,9 +35,8 @@ module.exports = async (context, req) => {
           userCreate: userDB.user?.discord?.userCreate || dayjs().utc().format(),
           lastLogin: dayjs().utc().format(),
           lastInteraction: dayjs().utc().format(),
-          
         },
-        admin: userDB.user?.admin,
+        admin: userDB.user.admin,
         userCreate: userDB.user?.userCreate || dayjs().utc().format()
       }
 

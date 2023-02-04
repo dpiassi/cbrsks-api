@@ -22,7 +22,7 @@
       "databaseName": "cyberskies",
       "collectionName": "users",
       "connectionStringSetting": "CosmoDB",
-      "sqlQuery": "SELECT c.id, c.discord FROM c WHERE c.discord.token={token}"
+      "sqlQuery": "SELECT c.id, c.discord, c.admin FROM c WHERE c.discord.token={token}"
     }
   ]
 }
