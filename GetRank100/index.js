@@ -13,6 +13,10 @@ module.exports = async (context, req) => {
       }
     }
 
+    console.log('results ======>', result)
+    console.log('amount ====>', result.length)
+    console.log('amount ranking', rankingDB.length)
+
     const ranking = result.map((pos, index) => ({
       ...pos,
       rank: index + 1
@@ -22,7 +26,7 @@ module.exports = async (context, req) => {
       status: 200,
       body: {
         status: 200,
-        ranking: ranking.slice(0, 100)
+        ranking: ranking.slice(0, 500)
       }
     }
   } catch(error) {
