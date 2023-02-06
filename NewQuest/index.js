@@ -18,6 +18,7 @@ module.exports = async (context, req) => {
     if (
       !(
         typeof quest?.name === 'string' &&
+        typeof quest?.commingSoonData === 'number' &&
         typeof quest?.startDate === 'number' &&
         typeof quest?.endDate === 'number' &&
         typeof quest?.labels?.button === 'string' &&
