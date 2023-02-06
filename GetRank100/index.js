@@ -13,10 +13,6 @@ module.exports = async (context, req) => {
       }
     }
 
-    console.log('results ======>', result)
-    console.log('amount ====>', result.length)
-    console.log('amount ranking', rankingDB.length)
-
     const ranking = result.map((pos, index) => ({
       ...pos,
       rank: index + 1
