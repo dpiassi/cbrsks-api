@@ -1,6 +1,6 @@
 const { request } = require('undici')
 
-const {API_URL, KEY_GET_USER_BY_DISCORD_ID, KEY_ADD_ROLE} = process.env
+const {API_URL, KEY_GET_USER_BY_DISCORD_ID, KEY_ADD_ROLE, KEY_ADD_POINT_QUEST} = process.env
 
 const api = {
   getUserSoloMatchCurrent: async (id) => {
@@ -71,7 +71,21 @@ const api = {
 
       return true
     } catch(error) {
-      console.log('getDiscordRole', 'ERROR', error)
+      console.log('addDiscordRole', 'ERROR', error)
+      return false
+    }
+  },
+  addPointsQuest: async (token) => {
+    try {
+      const headers = { 'Cookie': `discordToken=${token}` }
+      await request(`${API_URL}/quest/point?code=${KEY_ADD_POINT_QUEST}`, {
+        method: 'POST',
+        headers
+      })
+
+      return true
+    } catch(error) {
+      console.log('addPointsQuest', 'ERROR', error)
       return false
     }
   }

@@ -24,14 +24,13 @@ module.exports = async (context, req) => {
         typeof quest?.labels?.button === 'string' &&
         typeof quest?.labels?.bar === 'string' &&
         typeof quest?.goal === 'number' &&
-        typeof quest?.active === 'boolean'
+        typeof quest?.active === 'boolean',
+        typeof quest?.pointsForRaces === 'number'
       )
     ) throw new Error('Invalid body')
 
     const containerLogQuest = `quest${quest.name.trim().replace(/ /g, '')}`
-    const container = await factoryContainer('cyberskies', containerLogQuest)
-    const query = `SELECT * FROM c`
-    const {resources} = await container.items.query(query).fetchAll()
+    await factoryContainer('cyberskies', containerLogQuest)
 
     context.bindings.outputQuest = {
       ...quest,
@@ -42,7 +41,6 @@ module.exports = async (context, req) => {
       status: 200,
       body: {
         status: 200,
-        resources
       } 
     }
   } catch(error) {

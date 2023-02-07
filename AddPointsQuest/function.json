@@ -1,0 +1,28 @@
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "post"
+      ],
+      "route": "quest/point"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "in",
+      "name": "inputActiveQuest",
+      "databaseName": "cyberskies",
+      "collectionName": "quest",
+      "connectionStringSetting": "CosmoDB",
+      "sqlQuery": "SELECT c.containerLog, c.pointsForRaces FROM c WHERE c.active=true OFFSET 0 LIMIT 1"
+    }
+  ]
+}

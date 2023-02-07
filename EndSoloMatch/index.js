@@ -61,6 +61,7 @@ module.exports = async function (context, req) {
 
 		context.bindings.outputSoloMatchs = updateSoloMatch
 		context.bindings.outputSoloMatchRanking = dataRanking
+		await api.addPointsQuest(token)
 
 		return {
 			status: 200,
