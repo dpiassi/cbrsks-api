@@ -88,6 +88,33 @@ const api = {
       console.log('addPointsQuest', 'ERROR', error)
       return false
     }
+  },
+  getPointQuest: async (token) => {
+    try {
+      const headers = { 'Cookie': `discordToken=${token}` }
+      const response = await request(`${API_URL}/quest/point`, {
+        method: 'GET',
+        headers
+      })
+      const {total} = await response.body.json()
+
+      return total
+    } catch(error) {
+      console.log('getPointQuest', 'ERROR', error)
+      return false
+    }
+  },
+  getActiveQuest: async () => {
+    try {
+      const response = await request(`${API_URL}/quest/active`)
+      const quest = await response.body.json()
+      console.log('service', quest)
+
+      return quest
+    } catch(error) {
+      console.log('getActiveQuest', 'ERROR', error)
+      return false
+    }
   }
 }
 

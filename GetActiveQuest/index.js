@@ -4,7 +4,6 @@ const utc = require('dayjs/plugin/utc')
 dayjs.extend(utc)
 
 module.exports = async (context, req) => {
-  
   try {
     const quest = context.bindings.inputActiveQuest[0]
     const today = dayjs().utc().unix()
