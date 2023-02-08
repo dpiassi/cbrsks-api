@@ -295,6 +295,20 @@ const planesRoles = [
       skin: 'Luxury'
     }
   },
+  {
+    discordRoleId: '1072156456259948564', 
+    metadata: {
+      code: "PS-001",
+      name: "Phenom 456",
+      speed: 840,
+      boosterPower: 723,
+      boosterCooldown: 18,
+      boosterDuration: 12,
+      damageResistance: 1390,
+      corporation: 'Paxton Skylines',
+      skin: 'Gold'
+    }
+  },
 ]
 
 module.exports = planesRoles
