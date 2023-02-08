@@ -22,7 +22,7 @@
       "databaseName": "cyberskies",
       "collectionName": "quest",
       "connectionStringSetting": "CosmoDB",
-      "sqlQuery": "SELECT c.name, c.comingSoonDate, c.startDate, c.endDate, c.labels, c.goal, c.active, c.discordRolesIds FROM c WHERE c.active=true OFFSET 0 LIMIT 1"
+      "sqlQuery": "SELECT c.name, c.comingSoonDate, c.startDate, c.endDate, c.labels, c.goal, c.active, c.discordRolesIds, c.goalLabels FROM c WHERE c.active=true OFFSET 0 LIMIT 1"
     }
   ]
 }

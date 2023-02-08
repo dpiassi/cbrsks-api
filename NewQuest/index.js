@@ -23,10 +23,11 @@ module.exports = async (context, req) => {
         typeof quest?.endDate === 'number' &&
         typeof quest?.labels?.button === 'string' &&
         typeof quest?.labels?.bar === 'string' &&
+        typeof quest?.goalLabels?.button === 'string' &&
         typeof quest?.goal === 'number' &&
         typeof quest?.active === 'boolean',
         typeof quest?.pointsForRaces === 'number',
-        typeof quest?.discordRoleId === 'string'
+        Array.isArray(quest?.discordRoleId)
       )
     ) throw new Error('Invalid body')
 

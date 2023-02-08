@@ -14,8 +14,6 @@ const getRolesCurrentUser = async (tokenType, token) => {
     })
     const {roles} = await response.body.json()
 
-    console.log('roles', roles)
-
     return roles
   } catch (error) {
     context.log('getRolesCurrentUser', 'ERROR', error)
