@@ -12,7 +12,7 @@ module.exports = async (context, req) => {
     const token = getCookie(cookies, 'discordToken')
     const {quest: {discordRolesIds}} = await api.getActiveQuest()
     const currentUserDiscordRoleIds = await discordApi.getRolesCurrentUser(tokenType, token)
-    
+
     if (!currentUserDiscordRoleIds) throw new Error(`Erro with Discord API`)
 
     const hasPrize = !discordRolesIds.map( id => currentUserDiscordRoleIds.includes(id)).some((bool) => bool === false)
@@ -22,6 +22,7 @@ module.exports = async (context, req) => {
     return {
       status: 200,
       body: {
+        status: 200,
         hasPrize
       }
     }
