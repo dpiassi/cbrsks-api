@@ -35,12 +35,40 @@ module.exports = async (context, req) => {
         userCreate: userDB.user?.userCreate || dayjs().utc().format()
       }
 
-      context.log('SUCCESS - AuthDiscord', user)
+      context.log('SUCCESS', 'AuthDiscord', user)
 
+      const {check} = await api.checkIfUserOnGuild(authData.token_type, authData.access_token)
+
+      if (check) {
+
+        return {
+          status: 302,
+          headers: {
+            location: '/game'
+          },
+          cookies: [{
+            name: 'discordTokenType',
+            value: `${authData.token_type}`,
+            path: '/',
+            sameSite: 'Strict',
+            secure: true,
+            httpOnly: true
+          },
+          {
+            name: 'discordToken',
+            value: `${authData.access_token}`,
+            path: '/',
+            sameSite: 'Strict',
+            secure: true,
+            httpOnly: true
+          }]
+        }
+      }
+      
       return {
         status: 302,
         headers: {
-          location: '/game'
+          location: '/guild'
         },
         cookies: [{
           name: 'discordTokenType',

@@ -114,6 +114,20 @@ const api = {
       console.log('getActiveQuest', 'ERROR', error)
       return false
     }
+  },
+  checkIfUserOnGuild: async (tokenType, token) => {
+    try {
+      const headers = { 'Cookie': `discordTokenType=${tokenType};discordToken=${token}` }
+      const response = await request(`${API_URL}/user/guild/check`, {
+        headers
+      })
+      const member = await response.body.json()
+
+      return member
+    } catch(error) {
+      console.log('checkIfUserOnGuild', 'ERROR', error)
+      return false
+    }
   }
 }
 
