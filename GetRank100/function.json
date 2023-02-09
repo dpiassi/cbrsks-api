@@ -22,7 +22,7 @@
       "databaseName": "cyberskies",
       "collectionName": "soloMatchesRanking",
       "connectionStringSetting": "CosmoDB",
-      "sqlQuery": "SELECT c.username, c.time, c.discriminator, c.corporation, c.avatar FROM c ORDER BY c.timeMs ASC OFFSET 0 LIMIT 100000"
+      "sqlQuery": "SELECT c.userId, c.username, c.time, c.discriminator, c.corporation, c.avatar FROM c ORDER BY c.timeMs ASC OFFSET 0 LIMIT 100000"
     }
   ]
 }

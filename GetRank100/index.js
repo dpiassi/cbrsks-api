@@ -5,7 +5,7 @@ module.exports = async (context, req) => {
     const seen = new Set()
 
     for (const item of rankingDB) {
-      const key = item.username + item.discriminator
+      const key = item.userId
 
       if (!seen.has(key)) {
         result.push(item)
