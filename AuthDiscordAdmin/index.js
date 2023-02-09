@@ -14,9 +14,6 @@ module.exports = async (context, req) => {
       const user = await discordApi.getCurrentUser(authData)
       const userDB = await api.getUserByDiscordId(user.id)
 
-      console.log('userDB.user?.id', userDB.user?.id)
-      console.log('userDB.user?.admin', userDB.user?.admin)
-
       if (!userDB.user?.id || !userDB.user?.admin) throw new Error('Not authorized')
   
       context.bindings.outputUsers = {

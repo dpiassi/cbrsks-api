@@ -108,7 +108,6 @@ const api = {
     try {
       const response = await request(`${API_URL}/quest/active`)
       const quest = await response.body.json()
-      console.log('service', quest)
 
       return quest
     } catch(error) {

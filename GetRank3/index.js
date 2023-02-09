@@ -17,8 +17,6 @@ module.exports = async (context, req) => {
       ...pos,
       rank: index + 1
     }))
-
-    console.log('enter here', ranking)
   
     return {
       status: 200,
