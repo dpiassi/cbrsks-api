@@ -4,6 +4,7 @@ const refreshToken = require('./refreshToken')
 const getRolesCurrentUser = require('./getRolesCurrentUser')
 const addRole = require('./addRole')
 const getCurrentUserOnGuild = require('./getCurrentUserOnGuild')
+const getGuilds = require('./getGuilds')
 
 const discordApi = {
   getCurrentUser,
@@ -11,7 +12,8 @@ const discordApi = {
   refreshToken,
   getRolesCurrentUser,
   addRole,
-  getCurrentUserOnGuild
+  getCurrentUserOnGuild,
+  getGuilds
 }
 
 module.exports = discordApi

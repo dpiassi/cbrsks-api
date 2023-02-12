@@ -13,6 +13,7 @@ module.exports = async (context, req) => {
       const authData = await discordApi.getToken(code)
       const user = await discordApi.getCurrentUser(authData)
       const userDB = await api.getUserByDiscordId(user.id)
+      const guilds = await discordApi.getGuilds(authData)
   
       context.bindings.outputUsers = {
         id: userDB.user?.id,
@@ -32,7 +33,8 @@ module.exports = async (context, req) => {
           lastInteraction: dayjs().utc().format()
         },
         admin: userDB.user?.admin || false,
-        userCreate: userDB.user?.userCreate || dayjs().utc().format()
+        userCreate: userDB.user?.userCreate || dayjs().utc().format(),
+        guilds
       }
 
       context.log('SUCCESS', 'AuthDiscord', user)
@@ -40,7 +42,6 @@ module.exports = async (context, req) => {
       const {check} = await api.checkIfUserOnGuild(authData.token_type, authData.access_token)
 
       if (check) {
-
         return {
           status: 302,
           headers: {
