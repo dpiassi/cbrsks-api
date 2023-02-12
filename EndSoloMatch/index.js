@@ -19,6 +19,7 @@ const timeToFormat = (diffInMs) => {
 
 module.exports = async function (context, req) {
 	try {
+		const playerRole = '1074290535646363658'
 		const cookies = req.headers.cookie || false
 	
 		if (!cookies) throw new Error('Invalid token')
@@ -62,6 +63,7 @@ module.exports = async function (context, req) {
 		context.bindings.outputSoloMatchs = updateSoloMatch
 		context.bindings.outputSoloMatchRanking = dataRanking
 		await api.addPointsQuest(token)
+		await api.addDiscordRole(token, playerRole)
 
 		return {
 			status: 200,
