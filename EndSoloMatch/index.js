@@ -1,7 +1,6 @@
 const dayjs = require('dayjs')
 const utc = require('dayjs/plugin/utc')
 const api = require("../utils/api")
-const factoryContainer = require('../utils/factoryContainer')
 const getCookie = require("../utils/getCookie")
 
 dayjs.extend(utc)
