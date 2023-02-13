@@ -1,6 +1,6 @@
 module.exports = async (context, req) => {
-  try {
-    const rankingDB = context.bindings.inputSoloMatchesRanking
+try {
+  const rankingDB = context.bindings.inputSoloMatchesRanking
     const result = []
     const seen = new Set()
 
@@ -22,7 +22,7 @@ module.exports = async (context, req) => {
       status: 200,
       body: {
         status: 200,
-        ranking: ranking.slice(0, 500)
+        ranking: ranking.slice(0, 1000)
       }
     }
   } catch(error) {
