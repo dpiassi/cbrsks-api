@@ -12,7 +12,7 @@ module.exports = async (context, req) => {
   
     const {user: {id}} = await discordApi.getCurrentUserOnGuild(tokenType, token)
 
-    if (!id) throw new Error('') 
+    if (!id) throw new Error('GetCurrentUserGuilds', 'ERROR', error)
 
     return {
       status: 200,
