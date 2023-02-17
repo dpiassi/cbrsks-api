@@ -16,7 +16,7 @@ const getGuild = async (authData) => {
 
     return body
   } catch (error) {
-    context.log('getCurrentUserGuild', 'ERROR', error)
+    context.log('getGuild', 'ERROR', error)
     return false
   }
 }

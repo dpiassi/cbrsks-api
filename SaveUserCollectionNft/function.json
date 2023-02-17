@@ -1,0 +1,28 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "post"
+      ],
+      "route": "user/collection"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "out",
+      "name": "outputUser",
+      "databaseName": "cyberskies",
+      "collectionName": "users",
+      "createIfNotExists": true,
+      "connectionStringSetting": "CosmoDB"
+    }
+  ]
+}

@@ -1,8 +1,10 @@
 module.exports = async (context, req) => {
-try {
-  const rankingDB = context.bindings.inputSoloMatchesRanking
+  try {
+    const rankingDB = context.bindings.inputSoloMatchesRanking
     const result = []
     const seen = new Set()
+
+    console.log('amount races', rankingDB.length)
 
     for (const item of rankingDB) {
       const key = item.userId
@@ -17,7 +19,7 @@ try {
       ...pos,
       rank: index + 1
     }))
-  
+
     return {
       status: 200,
       body: {
