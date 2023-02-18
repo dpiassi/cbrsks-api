@@ -35,7 +35,7 @@ module.exports = async (context, req) => {
         userCreate: userDB.user?.userCreate || dayjs().utc().format(),
       }
 
-      const {check} = await api.checkIfUserOnGuild(authData.token_type, authData.access_token)
+      const {check} = true
 
       if (check) {
         return {
