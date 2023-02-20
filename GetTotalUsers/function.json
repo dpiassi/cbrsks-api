@@ -1,0 +1,28 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get"
+      ],
+      "route": "users/total"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "in",
+      "name": "inputUsers",
+      "databaseName": "cyberskies",
+      "collectionName": "users",
+      "connectionStringSetting": "CosmoDB",
+      "sqlQuery": "SELECT COUNT(1) FROM c"
+    }
+  ]
+}
