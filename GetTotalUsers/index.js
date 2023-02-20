@@ -1,12 +1,13 @@
 module.exports = async (context, req) => {
   try {
-    const total = context.bindings.inputUsers[0]["$1"]
+    const usersDb = context.bindings.inputUsers
+    const users = usersDb.filter((user) => user.discord?.id)
   
     return {
       status: 200,
       body: {
         status: 200,
-        total
+        users: users.length
       }
     }
   } catch(error) {

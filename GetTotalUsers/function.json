@@ -22,7 +22,7 @@
       "databaseName": "cyberskies",
       "collectionName": "users",
       "connectionStringSetting": "CosmoDB",
-      "sqlQuery": "SELECT COUNT(1) FROM c"
+      "sqlQuery": "SELECT * FROM c"
     }
   ]
 }
