@@ -1,0 +1,28 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get"
+      ],
+      "route": "users/played"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "in",
+      "name": "inputSoloMatchesRanking",
+      "databaseName": "cyberskies",
+      "collectionName": "soloMatchesRanking",
+      "connectionStringSetting": "CosmoDB",
+      "sqlQuery": "SELECT c.userId, c.username, c.time, c.discriminator, c.corporation, c.avatar FROM c ORDER BY c.timeMs ASC OFFSET 0 LIMIT 100000"
+    }
+  ]
+}
