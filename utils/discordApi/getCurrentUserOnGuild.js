@@ -2,22 +2,23 @@ const { request } = require('undici')
 
 const {
   DISCORD_API_URL,
-  ID_SERVER_DISCORD
+  ID_SERVER_DISCORD,
+  DISCORD_BOT_TOKEN
 } = process.env
 
-const getCurrentUserOnGuild = async (tokenType, token) => {
-  
+const getCurrentUserOnGuild = async (userId) => {
   try {
-    const response = await request(`${DISCORD_API_URL}/users/@me/guilds/${ID_SERVER_DISCORD}/member`, {
+    const response = await request(`${DISCORD_API_URL}/guilds/${ID_SERVER_DISCORD}/members/${userId}`, {
+      method: "GET",
       headers: {
-        Authorization: `${tokenType} ${token}`
+        Authorization: `Bot ${DISCORD_BOT_TOKEN}`
       }
     })
-    const body = await response.body.json()
+    const data = await response.body.json()
 
-    return body
-  } catch (error) {
-    context.log('getCurrentUserGuild', 'ERROR', error)
+    return data
+  } catch(error) {
+    console.log('addRole', 'ERROR', error)
     return false
   }
 }

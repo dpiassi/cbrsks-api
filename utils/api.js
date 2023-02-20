@@ -115,9 +115,9 @@ const api = {
       return false
     }
   },
-  checkIfUserOnGuild: async (tokenType, token) => {
+  checkIfUserOnGuild: async (token) => {
     try {
-      const headers = { 'Cookie': `discordTokenType=${tokenType};discordToken=${token}` }
+      const headers = { 'Cookie': `discordToken=${token}` }
       const response = await request(`${API_URL}/user/guild/check`, {
         headers
       })

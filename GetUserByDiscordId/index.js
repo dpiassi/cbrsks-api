@@ -2,7 +2,7 @@ module.exports = async (context, req) => {
   try {
     const user = context.bindings.inputUsers[0]
   
-    context.log('GetUserByDiscordId', 'SUCCESSS', user)
+    context.log('GetUserByDiscordId', 'SUCCESSS')
     return {
       status: 200,
       body: {

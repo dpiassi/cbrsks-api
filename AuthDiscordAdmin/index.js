@@ -37,7 +37,7 @@ module.exports = async (context, req) => {
         userCreate: userDB.user?.userCreate || dayjs().utc().format()
       }
 
-      context.log('SUCCESS - AuthDiscordAdmin', user)
+      context.log('SUCCESS - AuthDiscordAdmin')
 
       return {
         status: 302,

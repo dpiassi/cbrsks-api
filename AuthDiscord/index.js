@@ -35,7 +35,7 @@ module.exports = async (context, req) => {
         userCreate: userDB.user?.userCreate || dayjs().utc().format(),
       }
 
-      const {check} = true
+      const {check} = await api.checkIfUserOnGuild(authData.access_token)
 
       if (check) {
         return {
@@ -65,7 +65,7 @@ module.exports = async (context, req) => {
       return {
         status: 302,
         headers: {
-          location: '/game'
+          location: '/guild'
         },
         cookies: [{
           name: 'discordTokenType',
