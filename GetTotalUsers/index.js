@@ -7,7 +7,7 @@ module.exports = async (context, req) => {
       status: 200,
       body: {
         status: 200,
-        users: users.length
+        total: users.length
       }
     }
   } catch(error) {
