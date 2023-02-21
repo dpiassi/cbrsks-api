@@ -20,11 +20,17 @@ module.exports = async (context, req) => {
       rank: index + 1
     }))
 
+    const rankingSpliced = ranking.splice(0, 1000)
+    rankingSpliced.forEach((pos, index, arr) => {
+      // Ofuscate time data for top 20 players:
+      if (index < 20) arr[index].time = 'Qualified'
+    })
+
     return {
       status: 200,
       body: {
         status: 200,
-        ranking: ranking.slice(0, 1000)
+        ranking: rankingSpliced
       }
     }
   } catch(error) {
