@@ -17,16 +17,22 @@ module.exports = async (context, req) => {
       ...pos,
       rank: index + 1
     }))
-  
+
+    const topPlayersRanking = ranking.splice(0, 3)
+    topPlayersRanking.forEach((pos, index, arr) => {
+      // Ofuscate all time data:
+      arr[index].time = 'Qualified'
+    })
+
     return {
       status: 200,
       body: {
         status: 200,
-        ranking: ranking.splice(0, 3)
+        ranking: topPlayersRanking
       }
     }
-  } catch(error) {
-    context.log('GetRank100', 'ERROR', error)
+  } catch (error) {
+    context.log('GetRank3', 'ERROR', error)
     return {
       status: 500
     }
