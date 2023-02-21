@@ -21,7 +21,7 @@ module.exports = async (context, req) => {
     const rankingSpliced = ranking.splice(0, 3)
     rankingSpliced.forEach((pos, index, arr) => {
       // Ofuscate all time data:
-      arr[index].time = 'Qualified'
+      arr[index].time = 'QUALIFIED'
     })
 
     return {
