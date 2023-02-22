@@ -4,8 +4,6 @@ module.exports = async (context, req) => {
     const result = []
     const seen = new Set()
 
-    console.log('amount races', rankingDB.length)
-
     for (const item of rankingDB) {
       const key = item.userId
 

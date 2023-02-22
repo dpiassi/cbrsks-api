@@ -33,6 +33,7 @@ module.exports = async (context, req) => {
         lastInteraction: dayjs().utc().format()
       },
       admin: user?.admin || false,
+      collection: user?.collection,
       userCreate: user?.userCreate || dayjs().utc().format()
     }
   
