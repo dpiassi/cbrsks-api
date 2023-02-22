@@ -421,6 +421,20 @@ const planesRoles = [
       skin: 'Operators'
     }
   },
+  {
+    discordRoleId: '1075586727474909205', 
+    metadata: {
+      code: "MC-001",
+      name: "Delta",
+      speed: 1000,
+      boosterPower: 760,
+      boosterCooldown: 25,
+      boosterDuration: 5,
+      damageResistance: 1150,
+      corporation: 'Mach Co',
+      skin: 'Operators'
+    }
+  },
 ]
 
 module.exports = planesRoles
