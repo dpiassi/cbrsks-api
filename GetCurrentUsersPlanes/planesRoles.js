@@ -309,6 +309,62 @@ const planesRoles = [
       skin: 'Gold'
     }
   },
+  {
+    discordRoleId: '1077962315233759242', 
+    metadata: {
+      code: "MC-001",
+      name: "Delta",
+      speed: 1000,
+      boosterPower: 760,
+      boosterCooldown: 25,
+      boosterDuration: 5,
+      damageResistance: 1150,
+      corporation: 'Mach Co',
+      skin: 'Enforcers'
+    }
+  },
+  {
+    discordRoleId: '1077962585376301056', 
+    metadata: {
+      code: "MC-001",
+      name: "Delta",
+      speed: 1000,
+      boosterPower: 760,
+      boosterCooldown: 25,
+      boosterDuration: 5,
+      damageResistance: 1150,
+      corporation: 'Mach Co',
+      skin: 'Resistance'
+    }
+  },
+  {
+    discordRoleId: '1077963014361317416', 
+    metadata: {
+      code: "MC-001",
+      name: "Delta",
+      speed: 1000,
+      boosterPower: 760,
+      boosterCooldown: 25,
+      boosterDuration: 5,
+      damageResistance: 1150,
+      corporation: 'Mach Co',
+      skin: 'Rebels'
+    }
+  },
+  {
+    discordRoleId: '1077963127871774821', 
+    metadata: {
+      code: "MC-001",
+      name: "Delta",
+      speed: 1000,
+      boosterPower: 760,
+      boosterCooldown: 25,
+      boosterDuration: 5,
+      damageResistance: 1150,
+      corporation: 'Mach Co',
+      skin: 'Operators'
+    }
+  },
 ]
 
 module.exports = planesRoles
