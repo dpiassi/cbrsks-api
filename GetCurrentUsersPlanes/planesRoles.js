@@ -432,7 +432,7 @@ const planesRoles = [
       boosterDuration: 5,
       damageResistance: 1150,
       corporation: 'Mach Co',
-      skin: 'Operators'
+      skin: 'Resistance'
     }
   },
   {
@@ -446,7 +446,7 @@ const planesRoles = [
       boosterDuration: 5,
       damageResistance: 1150,
       corporation: 'Mach Co',
-      skin: 'Rebels'
+      skin: 'Enforcers'
     }
   },
 ]
