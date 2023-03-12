@@ -14,7 +14,7 @@ const planesRoles = [
     }
   },
   {
-    discordRoleId: '1061996679286497331', 
+    discordRoleId: '1061996679286497331',
     metadata: {
       code: "SFA-001",
       name: "Albatross",
@@ -28,7 +28,7 @@ const planesRoles = [
     }
   },
   {
-    discordRoleId: '1061997140634767391', 
+    discordRoleId: '1061997140634767391',
     metadata: {
       code: "MC-001",
       name: "Delta",
@@ -42,7 +42,7 @@ const planesRoles = [
     }
   },
   {
-    discordRoleId: '1061997150155845682', 
+    discordRoleId: '1061997150155845682',
     metadata: {
       code: "MR-002",
       name: "Gladiator",
@@ -56,7 +56,7 @@ const planesRoles = [
     }
   },
   {
-    discordRoleId: '1061997153888780288', 
+    discordRoleId: '1061997153888780288',
     metadata: {
       code: "PS-001",
       name: "Phenom 456",
@@ -70,7 +70,7 @@ const planesRoles = [
     }
   },
   {
-    discordRoleId: '1061997157143556206', 
+    discordRoleId: '1061997157143556206',
     metadata: {
       code: "CR-001",
       name: "Spectre",
@@ -84,8 +84,8 @@ const planesRoles = [
     }
   },
   {
-    discordRoleId: '1061997651744272384', 
-    metadata: { 
+    discordRoleId: '1061997651744272384',
+    metadata: {
       code: "SFA-002",
       name: "Stormbringer",
       speed: 720,
@@ -113,7 +113,7 @@ const planesRoles = [
     }
   },
   {
-    discordRoleId: '1061997901171146782', 
+    discordRoleId: '1061997901171146782',
     metadata: {
       code: "SFA-001",
       name: "Albatross",
@@ -127,7 +127,7 @@ const planesRoles = [
     }
   },
   {
-    discordRoleId: '1061997906938302464', 
+    discordRoleId: '1061997906938302464',
     metadata: {
       code: "MC-001",
       name: "Delta",
@@ -141,7 +141,7 @@ const planesRoles = [
     }
   },
   {
-    discordRoleId: '1061998301819441213', 
+    discordRoleId: '1061998301819441213',
     metadata: {
       code: "MR-002",
       name: "Gladiator",
@@ -155,7 +155,7 @@ const planesRoles = [
     }
   },
   {
-    discordRoleId: '1061998415959035965', 
+    discordRoleId: '1061998415959035965',
     metadata: {
       code: "PS-001",
       name: "Phenom 456",
@@ -169,7 +169,7 @@ const planesRoles = [
     }
   },
   {
-    discordRoleId: '1061998516223885433', 
+    discordRoleId: '1061998516223885433',
     metadata: {
       code: "CR-001",
       name: "Spectre",
@@ -183,8 +183,8 @@ const planesRoles = [
     }
   },
   {
-    discordRoleId: '1061998525325516870', 
-    metadata: { 
+    discordRoleId: '1061998525325516870',
+    metadata: {
       code: "SFA-002",
       name: "Stormbringer",
       speed: 720,
@@ -212,7 +212,7 @@ const planesRoles = [
     }
   },
   {
-    discordRoleId: '1061998528014057472', 
+    discordRoleId: '1061998528014057472',
     metadata: {
       code: "SFA-001",
       name: "Albatross",
@@ -226,7 +226,7 @@ const planesRoles = [
     }
   },
   {
-    discordRoleId: '1061998602081288253', 
+    discordRoleId: '1061998602081288253',
     metadata: {
       code: "MC-001",
       name: "Delta",
@@ -240,7 +240,7 @@ const planesRoles = [
     }
   },
   {
-    discordRoleId: '1061998606028124310', 
+    discordRoleId: '1061998606028124310',
     metadata: {
       code: "MR-002",
       name: "Gladiator",
@@ -254,7 +254,7 @@ const planesRoles = [
     }
   },
   {
-    discordRoleId: '1061999213745033257', 
+    discordRoleId: '1061999213745033257',
     metadata: {
       code: "PS-001",
       name: "Phenom 456",
@@ -268,7 +268,7 @@ const planesRoles = [
     }
   },
   {
-    discordRoleId: '1061999208594423808', 
+    discordRoleId: '1061999208594423808',
     metadata: {
       code: "CR-001",
       name: "Spectre",
@@ -282,8 +282,8 @@ const planesRoles = [
     }
   },
   {
-    discordRoleId: '1061999221538037791', 
-    metadata: { 
+    discordRoleId: '1061999221538037791',
+    metadata: {
       code: "SFA-002",
       name: "Stormbringer",
       speed: 720,
@@ -296,7 +296,7 @@ const planesRoles = [
     }
   },
   {
-    discordRoleId: '1072156456259948564', 
+    discordRoleId: '1072156456259948564',
     metadata: {
       code: "PS-001",
       name: "Phenom 456",
@@ -310,7 +310,7 @@ const planesRoles = [
     }
   },
   {
-    discordRoleId: '1077962315233759242', 
+    discordRoleId: '1077962315233759242',
     metadata: {
       code: "MC-001",
       name: "Delta",
@@ -324,7 +324,7 @@ const planesRoles = [
     }
   },
   {
-    discordRoleId: '1077551979221495818', 
+    discordRoleId: '1077551979221495818',
     metadata: {
       code: "MC-001",
       name: "Delta",
@@ -338,7 +338,7 @@ const planesRoles = [
     }
   },
   {
-    discordRoleId: '1077962585376301056', 
+    discordRoleId: '1077962585376301056',
     metadata: {
       code: "MC-001",
       name: "Delta",
@@ -352,7 +352,7 @@ const planesRoles = [
     }
   },
   {
-    discordRoleId: '1077551997126983782', 
+    discordRoleId: '1077551997126983782',
     metadata: {
       code: "MC-001",
       name: "Delta",
@@ -366,7 +366,7 @@ const planesRoles = [
     }
   },
   {
-    discordRoleId: '1077963014361317416', 
+    discordRoleId: '1077963014361317416',
     metadata: {
       code: "MC-001",
       name: "Delta",
@@ -380,7 +380,7 @@ const planesRoles = [
     }
   },
   {
-    discordRoleId: '1077552000755056723', 
+    discordRoleId: '1077552000755056723',
     metadata: {
       code: "MC-001",
       name: "Delta",
@@ -394,7 +394,7 @@ const planesRoles = [
     }
   },
   {
-    discordRoleId: '1077963127871774821', 
+    discordRoleId: '1077963127871774821',
     metadata: {
       code: "MC-001",
       name: "Delta",
@@ -408,7 +408,7 @@ const planesRoles = [
     }
   },
   {
-    discordRoleId: '1077551992295133244', 
+    discordRoleId: '1077551992295133244',
     metadata: {
       code: "MC-001",
       name: "Delta",
@@ -422,7 +422,7 @@ const planesRoles = [
     }
   },
   {
-    discordRoleId: '1075586727474909205', 
+    discordRoleId: '1075586727474909205',
     metadata: {
       code: "MC-001",
       name: "Delta",
@@ -436,7 +436,7 @@ const planesRoles = [
     }
   },
   {
-    discordRoleId: '1075566147602223134', 
+    discordRoleId: '1075566147602223134',
     metadata: {
       code: "MC-001",
       name: "Delta",
@@ -447,6 +447,48 @@ const planesRoles = [
       damageResistance: 1150,
       corporation: 'Mach Co',
       skin: 'Enforcers'
+    }
+  },
+  {
+    discordRoleId: '1083541907948458044',
+    metadata: {
+      code: "SFA-003",
+      name: "Balrog",
+      speed: 1056,
+      boosterPower: 898,
+      boosterCooldown: 24,
+      boosterDuration: 6,
+      damageResistance: 1200,
+      corporation: 'SFA',
+      skin: 'Standard' // Ice cream
+    }
+  },
+  {
+    discordRoleId: '1083696483448148008',
+    metadata: {
+      code: "SFA-003",
+      name: "Balrog",
+      speed: 1056,
+      boosterPower: 898,
+      boosterCooldown: 24,
+      boosterDuration: 6,
+      damageResistance: 1200,
+      corporation: 'SFA',
+      skin: 'Junk' // Street
+    }
+  },
+  {
+    discordRoleId: '1083871592993529856',
+    metadata: {
+      code: "SFA-003",
+      name: "Balrog",
+      speed: 1056,
+      boosterPower: 898,
+      boosterCooldown: 24,
+      boosterDuration: 6,
+      damageResistance: 1200,
+      corporation: 'SFA',
+      skin: 'Bear'
     }
   },
 ]
