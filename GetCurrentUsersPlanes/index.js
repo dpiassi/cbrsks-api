@@ -13,7 +13,7 @@ module.exports = async (context, req) => {
     const currentUserDiscordRoleIds = await discordApi.getRolesCurrentUser(tokenType, token) || []
 
     function injectGrizzlythonBalrogBearAircraftForFree() {
-      currentUserDiscordRoleIds.push('1083871592993529856')
+      currentUserDiscordRoleIds.unshift('1083871592993529856')
     }
     injectGrizzlythonBalrogBearAircraftForFree()
 
