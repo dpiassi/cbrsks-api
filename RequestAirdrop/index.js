@@ -24,7 +24,7 @@ module.exports = async (context, req) => {
     );
 
     const sourceAta = getAssociatedTokenAddressSync(
-      mint, 
+      mint,
       vaultKeypair.publicKey
     );
     const destinationAta = getAssociatedTokenAddressSync(mint, destination);
@@ -55,9 +55,12 @@ module.exports = async (context, req) => {
     tx.sign([vaultKeypair]);
 
     context.res = {
-      body: Buffer.from(tx.serialize()).toString("base64"),
+      body: {
+        status: 200,
+        result: Buffer.from(tx.serialize()).toString("base64"),
+      },
     };
-  } catch(error) {
+  } catch (error) {
     context.log('RequestAirdrop', 'ERROR', error)
     return {
       status: 500

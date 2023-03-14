@@ -8,7 +8,7 @@
       "methods": [
         "get"
       ],
-      "route": "rank/100"
+      "route": "rank/1000"
     },
     {
       "type": "http",

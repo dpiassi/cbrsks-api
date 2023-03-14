@@ -12,11 +12,16 @@ module.exports = async (context, req) => {
     const token = getCookie(cookies, 'discordToken')
     const currentUserDiscordRoleIds = await discordApi.getRolesCurrentUser(tokenType, token) || []
 
+    function injectGrizzlythonBalrogBearAircraftForFree() {
+      currentUserDiscordRoleIds.push('1083871592993529856')
+    }
+    injectGrizzlythonBalrogBearAircraftForFree()
+
     const planes = planesRoles.filter((plane) => {
       return (
         currentUserDiscordRoleIds.includes(plane.discordRoleId)
       )
-    }).map((plane) => ({...plane.metadata}))
+    }).map((plane) => ({ ...plane.metadata }))
 
     return {
       status: 200,
@@ -26,7 +31,7 @@ module.exports = async (context, req) => {
         planes
       }
     }
-  } catch(error) {
+  } catch (error) {
     context.log('GetCurrentUsersPlanes', 'ERROR', error)
     return {
       status: 500

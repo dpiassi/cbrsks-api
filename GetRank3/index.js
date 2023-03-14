@@ -18,12 +18,8 @@ module.exports = async (context, req) => {
       rank: index + 1
     }))
 
+    // TODO fix SQL query to get only the top 3 results
     const rankingSpliced = ranking.splice(0, 3)
-    rankingSpliced.forEach((pos, index, arr) => {
-      // Ofuscate all time data:
-      arr[index].time = 'QUALIFIED'
-    })
-
     return {
       status: 200,
       body: {

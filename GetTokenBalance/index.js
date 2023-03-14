@@ -12,6 +12,7 @@ module.exports = async (context, req) => {
 
     context.res = {
       body: {
+        status: 200,
         balance: tokenBalance.value.uiAmount,
       },
     };

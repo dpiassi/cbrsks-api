@@ -1,17 +1,8 @@
-const qualifiedPlayersRanking = require('../utils/qualifiedPlayersRanking')
-
 module.exports = async (context, req) => {
   try {
     const rankingDB = context.bindings.inputSoloMatchesRanking
     const result = []
     const seen = new Set()
-
-    const injectQualifiedPlayers = () => {
-      result.push(...qualifiedPlayersRanking)
-      result.forEach((pos) => seen.add(pos.userId))
-    }
-    injectQualifiedPlayers()
-
 
     for (const item of rankingDB) {
       const key = item.userId
@@ -26,12 +17,8 @@ module.exports = async (context, req) => {
       rank: index + 1
     }))
 
+    // TODO fix SQL query to get only the top 1000 results
     const rankingSpliced = ranking.splice(0, 1000)
-
-    // const ofuscateTop20 = (pos, index, arr) => {
-    //   if (index < 20) arr[index].time = 'QUALIFIED'
-    // }
-    // rankingSpliced.forEach(ofuscateTop20)
 
     return {
       status: 200,
