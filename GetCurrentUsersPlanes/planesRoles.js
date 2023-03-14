@@ -1,5 +1,19 @@
 const planesRoles = [
   {
+    discordRoleId: '1083871592993529856',
+    metadata: {
+      code: "SFA-003",
+      name: "Balrog",
+      speed: 1056,
+      boosterPower: 898,
+      boosterCooldown: 24,
+      boosterDuration: 6,
+      damageResistance: 1200,
+      corporation: 'SFA',
+      skin: 'Bear'
+    }
+  },
+  {
     discordRoleId: '1061996482468777984',
     metadata: {
       code: "CR-002",
@@ -475,20 +489,6 @@ const planesRoles = [
       damageResistance: 1200,
       corporation: 'SFA',
       skin: 'Junk' // Street
-    }
-  },
-  {
-    discordRoleId: '1083871592993529856',
-    metadata: {
-      code: "SFA-003",
-      name: "Balrog",
-      speed: 1056,
-      boosterPower: 898,
-      boosterCooldown: 24,
-      boosterDuration: 6,
-      damageResistance: 1200,
-      corporation: 'SFA',
-      skin: 'Bear'
     }
   },
 ]
