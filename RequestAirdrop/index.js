@@ -1,6 +1,6 @@
 const {
   createAssociatedTokenAccountIdempotentInstruction,
-  createTransferCheckedInstruction,
+  createTransferInstruction,
   getAssociatedTokenAddressSync,
 } = require("@solana/spl-token");
 const {
@@ -36,13 +36,11 @@ module.exports = async (context, req) => {
         destination,
         mint
       );
-    const transferInstruction = createTransferCheckedInstruction(
+    const transferInstruction = createTransferInstruction(
       sourceAta,
-      mint,
       destinationAta,
       vaultKeypair.publicKey,
-      amount,
-      0
+      amount
     );
 
     const { blockhash } = await connection.getLatestBlockhash("confirmed");
@@ -61,9 +59,9 @@ module.exports = async (context, req) => {
       },
     };
   } catch (error) {
-    context.log('RequestAirdrop', 'ERROR', error)
+    context.log("RequestAirdrop", "ERROR", error);
     return {
-      status: 500
-    }
+      status: 500,
+    };
   }
 };
