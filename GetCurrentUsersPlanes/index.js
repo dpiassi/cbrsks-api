@@ -12,10 +12,10 @@ module.exports = async (context, req) => {
     const token = getCookie(cookies, 'discordToken')
     const currentUserDiscordRoleIds = await discordApi.getRolesCurrentUser(tokenType, token) || []
 
-    function injectGrizzlythonBalrogBearAircraftForFree() {
-      currentUserDiscordRoleIds.unshift('1083871592993529856')
-    }
-    injectGrizzlythonBalrogBearAircraftForFree()
+    // function injectGrizzlythonBalrogBearAircraftForFree() {
+    //   currentUserDiscordRoleIds.unshift('1083871592993529856')
+    // }
+    // injectGrizzlythonBalrogBearAircraftForFree()
 
     const planes = planesRoles.filter((plane) => {
       return (
